@@ -19,16 +19,35 @@
   Todo
 ]
 
-// #item("Prédicat")[
-//   Todo
-// ]
-
-#item("Hamming (nombre de)")[
+#item("Prédicat")[
   Todo
 ]
 
+#item("Hamming (nombre de)")[
+  Un nombre de Hamming est un entier de la forme $ n = 2^a dot 3^b dot 5^c "où" a, b, c in NN $
+]
+
+#item("Hamming (distance de)")[
+  Distance entre deux suites de même longueur $n$, donnée par
+  $ d_H (u, v) = "Card"({ space k space ; space u_k != v_k space }) $
+  Il s'agit du nombre d'indices en lesquels ces suites diffèrent.
+
+  #implementation[
+    Voici un programme calculant la distance de Hamming de deux listes en OCaml.
+    
+    ```ocaml
+    let rec dist u v =
+      match u, v with
+      | [], [] -> 0
+      | x::u', y::v' ->
+        (if x = y then 0 else 1) + dist u' v'
+      | _, _ -> failwith "Longueurs différentes"
+    ```
+  ]
+]
+
 #item("Séquence")[
-  Collection d'éléments dans laquelle l'ordre et le nombre d'occurences des éléments compte. \
+  Collection d'éléments dans laquelle l'ordre et le nombre d'occurrences des éléments compte. \
   On notera
   - la séquence $s = (s_0, ..., s_(n-1))$
   - $abs(s) = n$ la longueur de la séquence
@@ -39,7 +58,7 @@
 ]
 
 #item("Master theorem")[
-  Todo :(
+  Todo
 ]
 
 #item("Karatsuba (algorithme de)")[
@@ -77,8 +96,16 @@
   ]
 ]
 
-#item("Principe d'optimalité")[
-  Principe stipulant que dans une suite optimale de décisions ou de choix, tout sous-suite doit aussi être optimale.
+#item("Principe d'optimalité de Bellman", related: "Bellman-Ford (algorithme de)")[
+  // Principe stipulant que dans une suite optimale de décisions ou de choix, tout sous-suite doit aussi être optimale.
+  Principe stipulant qu'une solution globale d'un problème décomposé en plusieurs sous-problèmes est optimale si et seulement si chacun de ces sous-problème est résolu de manière optimale.
+
+  #exemple[
+    Supposons qu'on cherche le chemin de $A$ vers $C$ passant par $B$ le plus court.
+    $ A -->^gamma B -->^delta C $
+     On décompose ce problème en la recherche d'un chemin $gamma$ de $A$ vers $B$ et d'un chemin $delta$ de $B$ vers $C$, tous deux les plus courts possibles. \
+     Le chemin global est optimal si et seulement si $gamma$ et $delta$ sont optimaux.
+  ]
 ]
 
 #item("Euler-Hierholzer (théorème de)")[
@@ -198,13 +225,27 @@
   ]
 ]
 
-// #item("Machine de Turing")[
-//   Todo
-// ]
+#item("Machine de Turing")[
+  Il existe plusieurs définitions similaires, nous en proposons une ici. \
+  Intuitivement, une machine de Turing est un automate particulier travaillant sur une bande au moyen d'une tête de lecture et écriture se déplaçant au plus d'une case vers la droite ou la gauche à chaque étape de calcul.
+  
+  Formellement, une machine de Turing $M$ est un tuple $(Q, q_0, Sigma, delta, dollar, B)$ où
+  - $Q$ est un nombre fini d'états
+  - $q_0 in Q$ est l'état initial
+  - $Sigma$ est un alphabet fini de cardinal supérieur à $3$ (car contenant $dollar != B$ ainsi qu'au moins un autre symbole distinct)
+  - $delta : Q times Sigma -> Q union {"accept","reject"} times Sigma times {<-, ->, arrow.b}$ est la fonction de transition (où $"accept" != "reject"$). $delta$ doit vérifier
+    - $forall q in Q, delta(q,dollar) = (q', dollar, ->)$ on n'enlève jamais le $dollar$, et quand on se trouve à sa position on repart.
+    - $forall q in Q, forall a in Sigma minus {dollar}, delta(q,a) = (q', b, d)$ où $b != dollar$, on n'écrit jamais le symbole $dollar$ si on n'est pas en début de la bande
+  - $dollar, B in Sigma$ sont des symboles spéciaux distincts, $dollar$ marquant le début de la bande et $B$ le symbole blanc.
+]
 
-// #item("Machine universelle")[
-//   Todo
-// ]
+#item("Machine universelle")[
+  Une machine universelle, aussi appelée machine de Turing universelle, est une machine de Turing capable de simuler n'importe quelle machine de Turing sur n'importe quelle entrée. \ Cette machine $M$ calcule la fonction
+  
+  $ f : ("code de" M', "ruban d'entrée") mapsto "résultat de" M' $
+
+  Où le résultat de $M'$ est le résultat de l'exécution de cette machine de Turing $M'$ sur le ruban d'entrée donné en argument.
+]
 
 #item("Sémantique")[
   La sémantique d'un algorithme $A$ est la fonction partielle $f : "string" -> "string"$ définie sur les $x$ pour lesquels $A(x)$ termine et alors $ f(x) = A(x) $
@@ -227,16 +268,16 @@
 ]
 
 #item("Church-Turing (thèse de)")[
-  Todo
+  Thèse du mathématicien Alonzo Church portant sur la calculabilité. Elle formalise la notion de fonction calculable : les fonctions calculables sont celles qu'on peut représenter par une machine de Turing.
 ]
 
 #item("Turing-complétude")[
   Todo
 ]
 
-// #item("Lambda calcul")[
-//   Todo
-// ]
+#item("Lambda calcul")[
+  Todo
+]
 
 #item("Clustering hiérarchique ascendant")[
   Technique d'apprentissage non supervisé, regroupant les objets en classe de manière arborescente.
@@ -272,7 +313,12 @@
 ]
 
 #item("Matrice de confusion")[
-  Todo
+  Matrice utilisée pour déterminer la justesse d'un algorithme de classification. \
+  Si on note $c(x)$ la classe d'un échantillon $x$ et $f(x)$ sa classe inférée par un algorithme de classification $f$, alors la matrice de confusion de $f$ pour un ensemble d'échantillons $X$ est $M$ définie par $ M_(i,j) = "Card"({ x in X | c(x) = i "et" f(x) = j }) $
+
+  On remarque que
+  - $M$ est diagonale si et seulement si tous les échantillons $x in X$ ont bien été classés par $f$
+  - le pourcentage d'échantillons mal classifiés (le taux d'erreur global) est égal à la somme des coefficients hors diagonale divisé par la somme de tous les coefficients.
 ]
 
 #item("Problème de coloriage")[
@@ -296,7 +342,20 @@
 ]
 
 #item("Manhattan (distance de)")[
-  Todo
+  Distance consistant à additionner les différences d'abscisse et d'ordonnée de deux points : c'est la distance associée à la norme un.
+
+  $ d_M (a,b) = |a_x - b_x| + |a_y - b_y| $
+
+  On peut la voir, sur une grille, comme le nombre de déplacements élémentaires verticaux et horizontaux à réaliser pour aller du point $a$ au point $b$.
+
+  #implementation[
+    ```ocaml
+    let distance a b =
+      let ax, ay = a in
+      let bx, by = b in
+      abs (ax - bx) + abs (ay - by)
+    ```
+  ]
 ]
 
 #item("k plus proches voisins")[

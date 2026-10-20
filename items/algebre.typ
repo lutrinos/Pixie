@@ -139,10 +139,14 @@
 
 #item("Paire")[
   Ensemble de cardinal égal à deux.
+
+  #exemple[
+    ${8,6}$ et ${6, 1}$ sont des paires. ${8, 6, 1}$ n'en est pas une.
+  ]
 ]
 
 #item("Multi-ensemble")[
-  Collection d'objet dans lequel l'ordre des éléments n'a pas d'importance mais le nombre d'occurences compte. \
+  Collection d'objet dans lequel l'ordre des éléments n'a pas d'importance mais le nombre d’occurrences compte. \
   On le note $ "ms"(x_1,..., x_n) $
 ]
 

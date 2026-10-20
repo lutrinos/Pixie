@@ -228,16 +228,14 @@
   // Cache ou non les entrées avec écrit "todo" à l'intérieur
   let hide-todo = true
 
-  entries.update(old => {
-    old.sorted(key: it => it.slug)
-  })
-
   context {
     
     let initial = ""
     let count = 0
 
-    for el in entries.final() {
+    let sorted = entries.final().sorted(key: it => it.slug)
+
+    for el in sorted {
 
         if el.slug.at(0) != initial {
           

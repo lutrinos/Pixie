@@ -41,15 +41,33 @@
 ]
 
 #item("SQL")[
-  Todo
+  Langage informatique permettant d'exploiter des bases de données relationnelles. Ce sigle correspond à _Structured Query Language_.
 ]
 
 #item("Jointure")[
   Todo
 ]
 
-#item("Requête (base de données)")[
-  Todo
+#item("Requête (base de données)", related: ("SQL"))[
+  Réaliser une requête sur une base de données désigne le fait de l'interroger (souvent au travers du langage SQL) pour utiliser ensuite son résultat.
+
+  #exemple[
+    Voici un exemple de requête SQL.
+
+    ```SQL
+    SELECT nom, code FROM departements;
+    ```
+
+    Dont le résultat serait de la forme
+
+    #table(
+      columns: (1fr, 1fr),
+      [*nom*], [*code*],
+      [Finistère], [29],
+      [Paris], [75],
+      [Rhône], [69]
+    )
+  ]
 ]
 
 #item("Association")[

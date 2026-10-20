@@ -1,4 +1,5 @@
 #import "../template.typ": *
+#import fletcher.shapes: diamond
 
 #item("Graphe")[
   Un graphe $G$ est un couple $(V, E)$ où
@@ -93,11 +94,6 @@
 
 #item("Graphe chemin")[
   Le graphe chemin $P_n$ possède $n$ sommets numérotés $0$, ..., $n-1$ et une arête entre les sommets $i$ et $j$ si et seulement si $i = j + 1$.
-
-  /*#figure(
-    image("../figures/graphes-chemin.png"),
-    caption: [Quelques graphes chemins]
-  )*/
 
   #figure(
     grid(
@@ -214,7 +210,52 @@
 ]
 
 #item("Graphe de flot de contrôle")[
-  Todo.
+  Graphe représentant les chemins pouvant être suivi par un programme durant son exécution.\
+  On l'abrège parfois par CFG pour _control flow graph_.
+
+  #exemple[    
+    ```C
+    int i = 0;
+    while (i <= 10) {
+      printf("Étape %d\n", i);
+      if (i <= 5) {
+        i += 2; 
+      } else {
+        i++;
+      }
+    }
+    printf("Enfin terminé \n");
+    ```
+
+    Le programme écrit ci-dessus en C donne le graphe de flot de contrôle ci-desous.
+
+    #figure(
+      diagram(
+        spacing: (14pt, 16pt),
+        node-stroke: 1pt,
+        node((0,0), [`int i = 0;`], corner-radius: 2pt),
+        edge("-|>"),
+        node((0,1), align(center)[
+         `if (i <= 10)`
+       ], shape: diamond),
+        edge("d", "-|>", [Oui]),
+       edge("r,b,b,b,b,b,l", "-|>", [Non], label-pos: 0.1),
+       node((0, 6), [`printf("Enfin terminé \n");`], corner-radius: 2pt),
+       node((0, 2), [`printf("Étape %d\n", i);`], corner-radius: 2pt),
+        edge("-|>"),
+       node((0, 3), align(center)[
+         `if (i <= 5)`
+       ], shape: diamond),
+        edge("d", "-|>", [Oui]),
+       edge("l", "-|>", [Non]),
+       node((-1, 3), [`i++;`], corner-radius: 2pt),
+       edge("l,u,u,r,r", "-|>"),
+       node((0, 4), [`i += 2;`], corner-radius: 2pt),
+       edge("d,l,l,u,u", "-")
+      ),
+      caption: [Exemple de graphe de flot de contrôle]
+    )
+  ]
 ]
 
 #item("Graphe intervalle")[
@@ -234,9 +275,11 @@
 ]
 
 #item("Acyclique")[
-  Todo
-  - condition d'acyclicité (parcours, pas de sommet ouvert)
+  Un graphe $G = (V, E)$ est dit acyclique s'il ne contient aucun cycle.
 ]
+
+// Todo
+//  - condition d'acyclicité (parcours, pas de sommet ouvert)
 
 #item("Arbre", related: ("Graphe",))[
   - Graphe acyclique et connexe. #figure(
@@ -787,4 +830,13 @@
 
 #item("Graphe planaire")[
   Todo
+]
+
+#item("Bellman-Ford (algorithme de)")[
+  Algorithme de recherche d'un plus court chemin dans un graphe pondéré.
+
+  #code("Algorithme de Bellman-Ford")[
+    - *Entrée :* un graphe $G = (V, E)$
+    - *Sortie :* 
+  ]
 ]
