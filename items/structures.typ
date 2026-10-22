@@ -326,9 +326,9 @@
 ]
 
 #item("Liste simplement chaînée")[
-  Structure de données composées de nœuds, chacun muni d'une étiquette et un accès à son successeur s'il existe.
+  Structure de données composées de nœuds, chacun muni d'une étiquette et d'un accès à son successeur s'il existe.
   
-  #figure(caption: "Liste chaînée correspondant à [1; 2; 3]",
+  #figure(caption: "Liste simplement chaînée correspondant à [1; 2; 3]",
     diagram(
       node((0, 0), grid(columns: 2, inset: 10pt, stroke: 1pt+black)[2][ ]),
       node((1, 0), grid(columns: 2, inset: 10pt, stroke: 1pt+black)[3][ ]),
@@ -336,12 +336,30 @@
 
       edge((0.14, 0), (0.72, 0), "-|>", stroke: 1pt + black, snap-to: none),
       edge((1.14, 0), (1.72, 0), "-|>", stroke: 1pt + black, snap-to: none),
+
+      node((2.2, 0), radius: 2pt, fill: black),
     )
   )
 ]
 
 #item("Liste doublement chaînée")[
-  Todo
+  Structure de données composées de nœuds, chacun muni d'une étiquette et d'un accès à son successeur et à son prédécesseur s'ils existent.
+  
+  #figure(caption: "Liste doublement  chaînée correspondant à [1; 2; 3]",
+    diagram(
+      node((0, 0), grid(columns: 3, inset: 8pt, stroke: 1pt+black)[ ][8][ ]),
+      node((0.9, 0), grid(columns: 3, inset: 8pt, stroke: 1pt+black)[ ][6][ ]),
+      node((1.8, 0), grid(columns: 3, inset: 8pt, stroke: 1pt+black)[ ][1][ ]),
+
+      edge((0.2, 0), (0.60, 0), "-|>", stroke: 1pt + black, snap-to: none, bend: 30deg),
+      edge((1.1, 0), (1.48, 0), "-|>", stroke: 1pt + black, snap-to: none, bend: 30deg),
+      edge((0.7, 0), (0.3, 0), "-|>", stroke: 1pt + black, snap-to: none, bend: 30deg),
+      edge((1.58, 0), (1.22, 0), "-|>", stroke: 1pt + black, snap-to: none, bend: 30deg),
+
+      node((2.02, 0), radius: 2pt, fill: black),
+      node((-0.285, 0), radius: 2pt, fill: black),
+    )
+  )
 ]
 
 #item("Array")[
