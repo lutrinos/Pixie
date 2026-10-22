@@ -340,6 +340,8 @@
       node((2.2, 0), radius: 2pt, fill: black),
     )
   )
+
+  C'est exactement le type `list` de OCaml.
 ]
 
 #item("Liste doublement chaînée")[
@@ -444,7 +446,30 @@
 ]
 
 #item("Arbre 2-3")[
-  Todo
+  Structure de données arborescente où chaque nœud interne a soit deux enfants et une étiquette ($2$-nœud), soit trois enfants et deux étiquettes ($3$-nœud). Les feuilles de l'arbre n'ont pas d'enfants et une ou deux étiquettes.
+
+  Les arbres $2$-$3$
+
+  #figure(caption: "Un exemple d'arbre 2-3",
+    diagram(
+      node((6, 0), grid(stroke: 1pt + black, columns: 1, inset: (left: 8pt, top: 8pt, bottom: 8pt, right: 8pt))[0]),
+      node((5.2, 1), grid(stroke: 1pt + black, columns: 2, inset: (left: 18pt, top: 8pt, bottom: 8pt, right: 18pt))[1][2]),
+      node((4.6, 2), grid(stroke: 0pt + black, columns: 1, inset: (left: 8pt, top: 8pt, bottom: 8pt, right: 8pt))[4], shape: circle, radius:12pt, stroke:1pt+black),
+      node((5.2, 2), grid(stroke: 0pt + black, columns: 1, inset: (left: 8pt, top: 8pt, bottom: 8pt, right: 8pt))[5], shape: circle, stroke: 1pt+ black, radius:12pt),
+      node((6.8, 1), grid(stroke: 1pt + black, columns: 1, inset: (left: 8pt, top: 8pt, bottom: 8pt, right: 8pt))[3]),
+      node((5.8, 2), grid(stroke: 0pt + black, columns: 1, inset: (left: 8pt, top: 8pt, bottom: 8pt, right: 8pt))[6], shape: circle, radius: 12pt, stroke: 1pt+black),
+      node((6.4, 2), grid(stroke: 0pt + black, columns: 1, inset: (left: 8pt, top: 8pt, bottom: 8pt, right: 8pt))[7], shape: circle, radius: 12pt, stroke: 1pt+black),
+      node((7.2, 2), grid(stroke: 0pt + black, columns: 1, inset: (left: 8pt, top: 8pt, bottom: 8pt, right: 8pt))[8], shape: circle, radius: 12pt, stroke: 1pt+black),
+      edge((6, 0.1), (5.05, 0.78), "-|>"),
+      edge((6, 0.1), (6.85, 0.78), "-|>"),
+      edge((4.75, 1.1), (4.6, 1.75), "-|>"),
+      edge((5.2, 1.1), (5.2, 1.75), "-|>"),
+      edge((5.6, 1.1), (5.8, 1.75), "-|>"),
+      edge((6.9, 1.1), (7.2, 1.75), "-|>"),
+      edge((6.7, 1.1), (6.4, 1.75), "-|>"),
+    )
+)
+
 ]
 
 #item("Arbre rouge-noir")[
