@@ -326,7 +326,9 @@
 ]
 
 #item("Liste simplement chaînée")[
-  Todo
+  Structure de données composées de nœuds, chacun muni d'une étiquette et un accès à son successeur.
+  
+  Todo Schéma.
 ]
 
 #item("Liste doublement chaînée")[
