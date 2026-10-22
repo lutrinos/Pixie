@@ -1,6 +1,6 @@
-<center>
-    <h1>Pixie</h1>
-</center>
+<div align="center">
+    <h1 >Pixie</h1>
+</div>
 
 ![Pixie](/figures/pixies.png)
 
@@ -9,3 +9,7 @@ Nous avons réalisé ce dictionnaire comme une synthèse des notions abordées a
 Ce projet tire son inspiration du _Petit Dico de Maths_ de M. Appel. Le contenu s'inspire quant à lui des cours d'informatique et exercices de M. Rebout et M. Bianquis. Nous souhaitons les remercier pour cette inspiration ainsi que pour leurs enseignements des années passées.
 
 _Ce dictionnaire est encore en cours de rédaction._
+
+<div align="center">
+    <a href="https://github.com/lutrinos/Pixie/releases/latest">Accéder à la dernière version</a>
+</div>
