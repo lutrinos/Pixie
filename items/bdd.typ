@@ -1,7 +1,8 @@
 #import "../template.typ": *
 
-#item("Basse de données")[
-  Todo
+#item("Base de données")[
+  Une base de données est une collection organisée d'objets, gérée par un SGBD (Système de Gestion de Base de Données).
+  // TODO: parler d'ACID
 ]
 
 #item("Système de Gestion de Bases de Données")[
