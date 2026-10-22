@@ -326,9 +326,18 @@
 ]
 
 #item("Liste simplement chaînée")[
-  Structure de données composées de nœuds, chacun muni d'une étiquette et un accès à son successeur.
+  Structure de données composées de nœuds, chacun muni d'une étiquette et un accès à son successeur s'il existe.
   
-  Todo Schéma.
+  #figure(caption: "Liste chaînée correspondant à [1; 2; 3]",
+    diagram(
+      node((0, 0), grid(columns: 2, inset: 10pt, stroke: 1pt+black)[2][ ]),
+      node((1, 0), grid(columns: 2, inset: 10pt, stroke: 1pt+black)[3][ ]),
+      node((2, 0), grid(columns: 2, inset: 10pt, stroke: 1pt+black)[1][ ]),
+
+      edge((0.14, 0), (0.72, 0), "-|>", stroke: 1pt + black, snap-to: none),
+      edge((1.14, 0), (1.72, 0), "-|>", stroke: 1pt + black, snap-to: none),
+    )
+  )
 ]
 
 #item("Liste doublement chaînée")[
@@ -413,5 +422,13 @@
 ]
 
 #item("Tas binaire")[
+  Todo
+]
+
+#item("Arbre 2-3")[
+  Todo
+]
+
+#item("Arbre rouge-noir")[
   Todo
 ]
