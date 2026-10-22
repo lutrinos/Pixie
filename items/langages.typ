@@ -427,7 +427,8 @@
 ]
 
 #item("Compression sans perte")[
-  Todo
+  Compression permettant une reconstruction exacte des données d'origine : aucune donnée n'est perdue ou dégradée. \
+  C'est notamment utilisé pour la compression de texte. Le format PNG est par exemple un format de compression d'image sans perte, alors que JPG est un format de compression d'image avec perte.
 ]
 
 #item("Glushkov (automate de)")[
