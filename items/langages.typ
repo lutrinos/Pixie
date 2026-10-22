@@ -128,6 +128,28 @@
 #item("Palindrome")[
   Mot étant égal à son miroir, si $u = u_1...u_n$ est un palindrome :
   $ forall i in bracket.l.stroked 1; n bracket.r.stroked quad u_i = u_(n + 1 - i) $
+
+  #exemple[
+    _bob_ et _kayak_ sont des palindromes, contrairement à _bloubiboulga_.
+  ]
+
+  #remarque[
+    Vérifier qu'un mot est un palindrome se fait aisément en temps linéaire.
+
+    ```C
+    bool est_palindrome(char* str) {
+      int n = strlen(str);
+      
+      for (int i = 0; i < n / 2; i++) {
+        if (str[i] != str[n - 1 - i]) {
+          return false;
+        }
+      }
+      
+      return true;
+    }
+    ```
+  ]
 ]
 
 #item("Distance (texte)")[

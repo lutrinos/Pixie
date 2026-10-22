@@ -695,7 +695,7 @@
   Todo
 ]
 
-#item("Parallélisme")[
+#item("Parallélisme", related: ("Concurrence"))[
   Fait d'exploiter la concurrence et la présence de plusieurs processeurs (unités d'exécution) pour accélérer un calcul ou programme.
 ]
 
@@ -753,10 +753,62 @@
 
 #item("Chaîne de caractères")[
   Suite ordonnée de caractères stockant du texte. \ Une chaîne de caractère est de type `char*` en C, et le caractère `\0` marque la fin de la chaîne. En OCaml, on utilise le module `String`.
+
+  #implementation[
+    En C, on peut utiliser `strlen` après avoir inclus `<string.h>`.
+    ```C
+    #include <string.h>
+    
+    int main() {
+      size_t len = strlen("Hello, world!");
+    }
+    ```
+    On peut également l'implémenter soi-même de la fonction suivante
+    ```C
+    int strlen(char* str) {
+      int len = 0;
+      while (str[len] != '\0') {
+        len += 1;
+      }
+      return len;
+    }
+    ```
+
+    En OCaml, il suffit d'utiliser `String.length`.
+    ```ocaml
+    let length = String.length "Hello, world!"
+    ```
+  ]
 ]
 
 #item("Recherche dichotomique")[
-  Todo
+  Algorithme de recherche permettant de déterminer la présence d'un élément dans un tableau trié. \
+  Il consiste à comparer l'élément recherché au milieu du tableau, puis à poursuivre la recherche dans la moitié droite ou gauche du tableau selon si l'élément recherché est plus petit ou plus grand.
+
+  #implementation[
+    Dans le cas d'un tableau trié par ordre croissant, voici un exemple d'implémentation retournant l'indice de la position de la valeur recherchée.
+    ```C
+    int dichotomie(int* arr, int len, int x) {
+      int a = 0;// Borne inférieure inclue
+      int b = len - 1;// Borne supérieure inclue
+
+      while (a <= b) {
+        int milieu = (a + b)/2;
+        int valeur = arr[milieu];
+
+        if (x == valeur) {
+          return milieu;
+        } else if (x < valeur) {
+          b = milieu - 1;
+        } else {
+          a = milieu + 1;
+        }
+      }
+
+      return -1;
+    }
+    ```
+  ]
 ]
 
 #item("Lecture de fichier")[
@@ -768,7 +820,26 @@
 ]
 
 #item("Peterson (algorithme de)")[
-  Todo
+  Implémentation d'un mutex garantissant l'exclusion mutuelle, l'absence d'interblocage et l'absence de famine.
+
+  #code("Algorithme de Peterson")[
+    - *fonction* CreateLock$()$
+      - *renvoyer* ${ "turn" = 0; "want" = ["false", "false"] }$
+
+    - *fonction* Unlock$(m, t)$
+      - $m."want"<-"false"$
+
+    - *fonction* Lock$(m,t)$
+      - $m."want"<-"true"$
+      - $m."turn"<-1-t$
+      - *tant que* $m."turn" = 1-t "et" m."want"[1-t]$ *faire*
+        - Rien
+  ]
+
+  #remarque[
+    - Suivre ce pseudo-code pour implémenter cet algorithme en C ne fonctionne pas car il peut y avoir un interblocage : cela est dû au fait que le processeur peut inverser l'ordre de deux instructions si on ne prend pas de précautions.
+    - Dans la pratique n'écrivez pas votre propre mutex, utilisez celui de la bibliothèque standard.
+  ]
 ]
 
 #item("Lamport (algorithme de la boulangerie de)")[

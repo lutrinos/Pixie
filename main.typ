@@ -54,7 +54,7 @@
     11 verres de sirop, 
     4 cookies, 
     // 0 tasses de chocolat, 
-    50h heures de travail
+    52h heures de travail
   ]
 ]
 
@@ -102,7 +102,7 @@
   #table(columns: (0.6fr, 1fr, 0.6fr), stroke: 0pt)[][
     Afin d'améliorer ce document n'hésitez pas à nous transmettre les éventuelles critiques, remarques ou corrections qui vous viendraient à l’esprit à sa lecture, à l'adresse : 
 
-    #{"contact@paulch.fr ou n75@tuta.io"}
+    #{"contact@paulch.fr ou nathanti@crans.org"}
 
     #v(1em)
 
@@ -125,6 +125,11 @@ Nous avons réalisé ce dictionnaire comme une synthèse des notions abordées a
 Ce projet tire son inspiration du _Petit Dico de Maths_ de M. Appel. Le contenu s'inspire quant à lui des cours d'informatique et exercices de M. Rebout et M. Bianquis. Nous souhaitons les remercier pour cette inspiration ainsi que pour leurs enseignements des années passées.
 
 _Ce dictionnaire est encore en cours de rédaction._
+
+#align(bottom + center)[
+  #image("figures/pixies.png", width: 60%)
+  Illustration par John Dickson Batten pour _More English Fairy Tales_, Joseph Jacobs
+]
 
 // Dictionnaire
 #set par(first-line-indent: 0em)

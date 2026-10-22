@@ -371,11 +371,27 @@
 ]
 
 #item("Tableau")[
-  Todo
+  Zone contiguë de mémoire permettant de stocker plusieurs valeurs du même type, chacune repérée par son indice.
 ]
 
 #item("Tableau statique")[
-  Todo (en C)
+  Tableau de taille fixée à la création.
+
+  - en C, on écrit ```C
+  int t[6];
+  ``` On peut initialiser chaque cellule avec ```C
+  t[1] = 4;``` Ou à la création avec la syntaxe ```C
+  double t[3] = {0.1, 0.2, 0.3}``` On peut omettre la taille avec cette syntaxe. Si elle s'avère plus grande que le nombre d'éléments renseignés, C complète automatiquement avec la valeur nulle.
+
+  - en Ocaml, on utilise le module `Array` en écrivant ```ocaml
+  let t = Array.make n x
+  ``` Où `n` est la taille du tableau et `x` la valeur initiale de toutes les cases. \ On accède ou modifie la valeur d'un élément en écrivant ```ocaml
+  let t = Array.make 3 0
+  t.(0) (* 0 *)
+  t.(1) <- 2
+  t.(1) (* 2 *)
+  ```
+  
 ]
 
 #item("Tableau bidimensionel statique")[
