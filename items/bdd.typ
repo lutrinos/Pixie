@@ -1,12 +1,16 @@
 #import "../template.typ": *
 
-#item("Base de données")[
+#item("Base de données", related: ("Système de Gestion de Bases de Données"))[
   Une base de données est une collection organisée d'objets, gérée par un SGBD (Système de Gestion de Base de Données).
   // TODO: parler d'ACID
 ]
 
-#item("Système de Gestion de Bases de Données")[
-  Todo
+#item("Système de Gestion de Bases de Données", related: ("Base de données"))[
+  Un Système de Gestion de Bases de Données, ou SGDB, est un logiciel utilisé pour manipuler des bases de données. Les opérations effectuées sont notamment l'inscription, la recherche, la modification, le tri et la transformation d'informations.
+
+  #remarque[
+    - En anglais, SGDB est DBMS pour _Database Management System_.
+  ]
 ]
 
 #item("Atomicité (base de données)")[
