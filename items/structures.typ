@@ -448,7 +448,23 @@
 #item("Arbre 2-3")[
   Structure de données arborescente où chaque nœud interne a soit deux enfants et une étiquette ($2$-nœud), soit trois enfants et deux étiquettes ($3$-nœud). Les feuilles de l'arbre n'ont pas d'enfants et une ou deux étiquettes.
 
-  Les arbres $2$-$3$ doivent être équilibrés, c'est-à-dire que toutes les feuilles doivent être à la même profondeur.
+  #figure(caption: [Un $2$-nœud et un $3$-nœud], diagram(
+      node((6.8, 1), grid(stroke: 1pt + black, columns: 1, inset: (left: 8pt, top: 8pt, bottom: 8pt, right: 8pt))[a]),
+      node((6.4, 2), grid(stroke: 0pt + black, columns: 1, inset: (left: 8pt, top: 8pt, bottom: 8pt, right: 8pt))[q], shape: circle, radius: 12pt, stroke: 1pt+black),
+      node((7.2, 2), grid(stroke: 0pt + black, columns: 1, inset: (left: 8pt, top: 8pt, bottom: 8pt, right: 8pt))[r], shape: circle, radius: 12pt, stroke: 1pt+black),
+      node((9.2, 1), grid(stroke: 1pt + black, columns: 2, inset: (left: 18pt, top: 8pt, bottom: 8pt, right: 18pt))[a][b]),
+      node((8.6, 2), grid(stroke: 0pt + black, columns: 1, inset: (left: 8pt, top: 8pt, bottom: 8pt, right: 8pt))[p], shape: circle, radius:12pt, stroke:1pt+black),
+      node((9.2, 2), grid(stroke: 0pt + black, columns: 1, inset: (left: 8pt, top: 8pt, bottom: 8pt, right: 8pt))[q], shape: circle, stroke: 1pt+ black, radius:12pt),
+      node((9.8, 2), grid(stroke: 0pt + black, columns: 1, inset: (left: 8pt, top: 8pt, bottom: 8pt, right: 8pt))[r], shape: circle, radius: 12pt, stroke: 1pt+black),
+      edge((6.9, 1.1), (7.2, 1.75), "-|>"),
+      edge((6.7, 1.1), (6.4, 1.75), "-|>"),
+      edge((8.75, 1.1), (8.6, 1.75), "-|>"),
+      edge((9.2, 1.1), (9.2, 1.75), "-|>"),
+      edge((9.6, 1.1), (9.8, 1.75), "-|>"),
+    )
+  )
+
+  Les arbres $2$-$3$ doivent être équilibrés, c'est-à-dire que toutes les feuilles doivent être à la même profondeur. Cela implique que chaque sous-arbre gauche, du milieu et droit d'un nœud contiennent des quantités proches de données.
 
   #figure(caption: "Un exemple d'arbre 2-3",
     diagram(
@@ -468,8 +484,18 @@
       edge((6.9, 1.1), (7.2, 1.75), "-|>"),
       edge((6.7, 1.1), (6.4, 1.75), "-|>"),
     )
-)
+  )
 
+  On dira que $T$ est un arbre $2$–$3$ si et seulement si l'une des affirmations suivantes est vraie :
+    - $T$ est vide. C'est-à-dire que $T$ n'a aucun nœud.
+    - $T$ est un $2$-nœud d'étiquette $a$ , de fils gauche $p$ et de fils droit $q$ alors
+        - $p$ et $q$ sont des arbres $2$-$3$ de même hauteur.
+        - $a$ est plus grand que tout élément de $p$.
+        - $a$ est plus petit que tout élément de $q$.
+    - $T$ est un $3$-nœud d'étiquettes $a$ et $b$ où $a < b$, de fils gauche $p$, de fils du milieu $q$ et de fils droit $r$, alors
+        - $p$, $q$ et $r$ sont des arbres $2$-$3$ de même hauteur.
+        - $a$ est plus grand que tout élément de $p$ et plus petit que tout élément de $q$.
+        - $b$ est plus grand que tout élément de $q$ et plus petit que tout élément de $r$.
 ]
 
 #item("Arbre rouge-noir")[
