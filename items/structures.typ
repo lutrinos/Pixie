@@ -448,7 +448,7 @@
 #item("Arbre 2-3")[
   Structure de données arborescente où chaque nœud interne a soit deux enfants et une étiquette ($2$-nœud), soit trois enfants et deux étiquettes ($3$-nœud). Les feuilles de l'arbre n'ont pas d'enfants et une ou deux étiquettes.
 
-  Les arbres $2$-$3$
+  Les arbres $2$-$3$ doivent être équilibrés
 
   #figure(caption: "Un exemple d'arbre 2-3",
     diagram(
