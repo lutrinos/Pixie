@@ -57,12 +57,47 @@
   - $s[d:] = s[d:n]$ les éléments de la séquence après l'indice $d$
 ]
 
-#item("Master theorem")[
-  Todo
+#item("Master theorem", related: ("Karatsuba (algorithme de)"))[
+  Soit $a >= 1$ et $b > 1$ fixés, soit $f : NN -> NN$ une fonction et $T(n)$ définie sur les entier positifs par la formule de récurrence $ T(n) = f(n) + a T(n/b) $
+
+  Alors $T(n)$ peut être borné asymptotiquement par
+  - si $f(n) = O(n^(log_b (a-epsilon)))$ où $epsilon > 0$, alors $ T(n) = O(n^(log_b (a))) $
+  - si $f(n) = Theta(n^(log_b (a)))$ alors $ T(n) = Theta(n^(log_b (a))) log(n) $
+  - si $f(n) = Omega(n^(log_b (a+epsilon)))$ où $epsilon > 0$ et si $a f(n/b) <= c f(n)$ où $c < 1$ et $n$ grand, alors $ T(n) = Theta(f(n)) $
+
+  Ce résultat est particulièrement utile lorsqu'il s'agit de déterminer la complexité d'un algorithme de type "diviser pour régner", comme par exemple l'algorithme de Karatsuba.
 ]
 
-#item("Karatsuba (algorithme de)")[
-  Todo
+#item("Karatsuba (algorithme de)", related: ("Master theorem"))[
+  Algorithme utilisé pour multiplier rapidement deux nombres, il tire parti de l'observation suivante : pour tout $a,b,c,d in NN$ et pour tout $k in NN$,
+  $ (a dot 2^k + b)(c dot 2^k + d) = a c dot 2^(2k) + (a d + b c) dot 2^k + b d $
+
+  C'est un algorithme de type diviser pour régner, dont la complexité temporelle est en $O(n^(log_2 (3)))$ (obtenue grâce au théorème maître), où $n$ est la longueur des deux nombres. L'intérêt repose sur le fait qu'une multiplication naïve se fait en $O(n^2)$ tandis qu'une addition se fait en $O(n)$.
+
+  #implementation[
+    ```C
+    int karatsuba(int x, int y, int n) {
+      // Cas de base
+      if (n == 1) {
+        if (x == 1 && y == 1) return 1;
+        return 0;
+      }
+      
+      int k = n >> 1;
+
+      int a = x >> k;
+      int b = x - (a << k);
+
+      int c = y >> k;
+      int d = y - (c << k);
+
+      return 
+        (karatsuba(a, c, k) << (k + k))
+        + ((karatsuba(a, d, k) + karatsuba(b, c, k)) << k)
+        + karatsuba(b, d, k);
+    }
+    ```
+  ]
 ]
 
 #item("Sac à dos (problème du)")[

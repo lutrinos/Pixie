@@ -151,7 +151,9 @@
 ]
 
 #item("Permutation")[
-  Todo + comment les générer de manière équiprobable ?
+  Soit $E$ un ensemble, une permutation de $E$ est une bijection de $E$ dans $E$. L'ensemble des permutations de $E$ muni de la composition $compose$ est un groupe, noté $S_E$ ou $frak(S)(E)$.
+
+  Lorsque $E = [|1, n|]$, on l'appelle _groupe symétrique_, noté $S_n$ ou $frak(S)_n$.
 ]
 
 #item("Ordre lexicographique")[

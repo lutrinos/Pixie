@@ -656,8 +656,8 @@
   - soit de la forme $N(x, g, d)$ où $g$ et $d$ sont des arbres binaires parfaits de même hauteur
 ]
 
-#item("Arbre binaire complet")[
-  Todo
+#item("Arbre binaire complet", related: ("Arbre binaire"))[
+  Arbre binaire dont tous les nœuds ont exactement zéro ou deux fils.
 ]
 
 #item("Arbre binaire de recherche")[
