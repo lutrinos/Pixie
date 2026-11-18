@@ -286,20 +286,52 @@
   La sémantique d'un algorithme $A$ est la fonction partielle $f : "string" -> "string"$ définie sur les $x$ pour lesquels $A(x)$ termine et alors $ f(x) = A(x) $
 ]
 
-#item("k-moyennes")[
+#item("k-moyennes", related: ("Lloyd (algorithme de)"))[
+  La notion de $k$-moyennes désigne
+  1. le problème d'optimisation suivant : étant donné un ensemble contenant $n$ points $S = {x_1, ..., x_n}$ de $RR^d$ et un entier $k$, trouver une partition $S = S_1 union.sq dot dot dot union.sq S_k $ minimisant $ sum_(i=1)^k sum_(x in S_i) ||x - mu_i||^2 $ où pour tout $i in [|1, k|]$, $mu_i$ est l'isobarycentre des points de $S_i$. Ce problème est NP-dur.
+  2. 
+]
+
+#item("Apprentissage")[
   Todo
+]
+
+#item("Apprentissage supervisé")[
+  Apprentissage dans lequel on possède un jeu d'apprentissage contenant des données étiquetées.
 ]
 
 #item("Apprentissage non supervisé")[
-  Todo
+  Apprentissage dans lequel on possède un jeu d'apprentissage contenant des données non étiquetées, qu'il va falloir par exemple partitionner en classes distinctes.
 ]
 
 #item("Clustering")[
-  Todo
+  En apprentissage, tâche consistant à regrouper des données en classes de manière à ce qu'elles soient regroupées de manière aussi homogènes que possible en le moins de groupes (ou _clusters_) possibles.
 ]
 
-#item("Lloyd (algorithme de)")[
-  Todo
+#item("Lloyd (algorithme de)", related: ("k-moyennes"))[
+  Algorithme utilisé pour trouver une solution convenable au problème des $k$-moyennes. Il consiste à :
+    - choisir $k$ points au hasard qui deviendront les premiers isobarycentres
+    - répéter jusqu'à converger sur un point fixe la procédure suivante
+      - affecter chaque point à l'ensemble du barycentre $S_i$ le plus proche
+      - mettre à jour les isobarycentre de chaque ensemble $S_i$ ainsi formé
+
+  #code("Algorithme de Lloyd")[
+    - *Entrées :* $S = {x_1, ..., x_n}$ $n$ points de $RR^d$, un entier $k > 0$
+    - *Sortie :* $S_1, ..., S_n$ tels que $S = S_1 union.sq dot dot dot union.sq S_k$
+      - $mu_1, ..., mu_k <-$ $k$ points choisis au hasard parmi $S$
+      - $S_1, ..., S_k <- emptyset, ..., emptyset$
+      - $"changed" <- "true"$
+      - *Tant que* $"changed"$ *faire*
+        - $"changed" <- "false"$
+        - *Pour* $i in [|1, k|]$ *faire*
+          - *Pour* $x in S_i$ *faire*
+            - $mu_j <- mu "le plus proche de" x$
+            - *Si* $i != j$ *alors*
+              - $S_i <- S_i without {x}$
+              - $S_j <- S_j union {x}$
+              - $"changed" <- "true"$
+      - $"Retourner" S_1, ..., S_k$
+  ]
 ]
 
 #item("Church-Turing (thèse de)")[
@@ -317,7 +349,7 @@
 #item("Clustering hiérarchique ascendant")[
   Technique d'apprentissage non supervisé, regroupant les objets en classe de manière arborescente.
 
-  #code("Clusterin hiérarchique ascendant")[
+  #code("Clustering hiérarchique ascendant")[
     - *Entrée :* un ensemble de $N$ échantillons $x_1 , ..., x_N$ non étiquetés
     - *Sortie :* bonne question
       - créer $N$ classes ${x_1}, ..., {x_N}$
@@ -369,10 +401,6 @@
 ]
 
 #item("Shannon (entropie de)")[
-  Todo
-]
-
-#item("Apprentissage")[
   Todo
 ]
 

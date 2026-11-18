@@ -54,7 +54,6 @@
 
 #item("Langage régulier", related: ("Langage rationnel"))[]
 #item("Lexicographique", related: ("Ordre lexicographique"))[]
-#item("Longueur", related: ("Longueur d'un mot"))[]
 
 #item("Merge sort", related: ("Tri fusion"))[]
 
