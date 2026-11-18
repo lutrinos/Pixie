@@ -89,6 +89,11 @@
 
 #item("Préordre")[
   Relation réflexive et transitive.
+
+  #exemple[
+    - L'inclusion $subset.eq$ sur $cal(P)(NN)$ est un préordre.
+    - La relation "est accessible depuis" sur les sommets d'un graphe orienté est un préordre.
+  ]
 ]
 
 #item("Relation d'ordre")[
@@ -123,17 +128,27 @@
   $ exists (x, y) in E quad (x lt.eq.not y) and (y lt.eq.not x) $
 ]
 
-#item("Minimum")[
+#item("Minimum", related: ("Élément minimal", "Ensemble préordonné"))[
   Plus petit élément d'un ensemble préordonné,  $x in E$ est un minimum de $(E, <=)$ si et seulement si :
   $ forall y in E, quad x <= y $
+
+  #remarque[
+    À ne pas confondre avec _élément minimal_.
+  ]
 ]
 
-#item("Élément minimal")[
+#item("Élément minimal", related: ("Minimum"))[
   Élément tel qu'aucun élément ne lui est inférieur, $x in E $ est un élément minimal de $(E, <=)$ si et seulement si :
   $ forall y in E, quad y <= x ==> x = y $
+  ou bien si et seulement si
+  $ forall y in E, y lt.not x $
+  
+  #remarque[
+    À ne pas confondre avec _minimum_
+  ]
 ]
 
-#item("Ensemble préordonné")[
+#item("Ensemble préordonné", related: "Préordre")[
   Ensemble $E$ muni d'un préordre $<=$, on le note $(E, <=)$.
 ]
 
