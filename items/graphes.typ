@@ -258,8 +258,10 @@
   ]
 ]
 
-#item("Graphe intervalle")[
-  Todo.
+#item("Graphe d'intervalles")[
+  Soient $I_1, ..., I_n subset.eq RR$ des intervalles. Le graphes d'intervalles $G=(V,E)$ correspondant est le graphe non orienté tel quel
+  - $V = {I_1, ..., I_n}$
+  - Pour tous $i != j in [|1, n|]$, on a l'équivalence $ I_i inter I_j != emptyset <==> {I_i, I_j} in E $
 ]
 
 #item("Chemin simple")[

@@ -438,7 +438,11 @@
 ]
 
 #item("Carmichael (nombre de)")[
-  Todo
+  Cela désigne des nombres "presque premiers", c'est-à-dire les nombres composés (possédant un diviseur différent de un et lui-même) vérifiant la propriété
+  $ forall a in NN, a and n = 1 ==> a^(n-1) equiv 1 mod n $
+  Soit en toutes lettres
+  $ "Pour tout" a "premier avec" n, n "divise" a^(n-1)-1 $
+  Il s'agit très précisément des entiers contredisant la réciproque du petit théorème de Fermat, il y en a d'ailleurs une infinité.
 ]
 
 #item("Barrière d'abstraction")[
